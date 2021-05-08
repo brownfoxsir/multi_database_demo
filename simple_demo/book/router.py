@@ -21,10 +21,7 @@ class BookRouter:
         return None
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
-        """
-        Make sure the auth and contenttypes apps only appear in the
-        'auth_db' database.
-        """
+
         if app_label in self.route_app_labels:
             return db == 'book_db'
         return None
